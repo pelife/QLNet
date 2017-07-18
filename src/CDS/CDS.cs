@@ -87,7 +87,7 @@ namespace CDS
 
          }
 
-         PiecewiseYieldCurve<Haza
+         
       }
    }
 }

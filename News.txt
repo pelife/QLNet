@@ -1,28 +1,15 @@
-QLNet 1.9.2 
+QLNet 1.11.2
 =========================
 
-QLNet 1.9.2 stable version.
-
-The most notable changes are included below.
+QLNet 1.11.2 is a bug-fix release for version 1.11
 A detailed list of changes is available in ChangeLog.txt.
 
-FRAMEWORK
+ENGINES
 
-+ Fixed floating point numbers equality.
-+ Added FastActivator to avoid new() on generic classes
-+ Project updated to Visual Studio 2017 new .csproj model.
-+ General project refactoring
-+ Removed "System.Exception" thrown by user code.
++ Fixed a bug int FDMultiPeriodEngine.Thanks to Jakub Pstrusiński.
 
-TERMSTRUCTURES
+CASHFLOWS
 
-+ Added HestonBlackVolSurface 
-
-INDEXES
-
-+ Fixed inflation index reference period
-
-INSTRUMENTS
-
-+ Added normal implied vol cap floor
-+ Added Bachelier volatility for CapFloor
++ Fixed accrual calculation
++ Fixed yield calculation when settlement date falls on 31st
++ Added OAS calculation to callable bonds

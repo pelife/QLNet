@@ -6,7 +6,7 @@
  QLNet is free software: you can redistribute it and/or modify it
  under the terms of the QLNet license.  You should have received a
  copy of the license along with this program; if not, license is
- available online at <http://qlnet.sourceforge.net/License.html>.
+ available at <https://github.com/amaggiulli/QLNet/blob/develop/LICENSE>.
 
  QLNet is a based on QuantLib, a free-software/open-source library
  for financial quantitative analysts and developers - http://quantlib.org/
@@ -22,7 +22,7 @@ using System.Linq;
 namespace QLNet
 {
    public class InterpolatedPiecewiseZeroSpreadedTermStructure<Interpolator> : ZeroYieldStructure
-      where Interpolator : class, IInterpolationFactory, new()
+      where Interpolator : class, IInterpolationFactory, new ()
    {
       public InterpolatedPiecewiseZeroSpreadedTermStructure(Handle<YieldTermStructure> h,
                                                             List<Handle<Quote>> spreads,
@@ -54,16 +54,16 @@ namespace QLNet
             updateInterpolation();
       }
 
-      private Handle<YieldTermStructure> originalCurve_;
-      private List<Handle<Quote>> spreads_;
-      private List<Date> dates_;
-      private List<double> times_;
-      private List<double> spreadValues_;
-      private Compounding compounding_;
-      private Frequency frequency_;
-      private DayCounter dc_;
-      private Interpolator factory_;
-      private Interpolation interpolator_;
+      protected Handle<YieldTermStructure> originalCurve_;
+      protected List<Handle<Quote>> spreads_;
+      protected List<Date> dates_;
+      protected List<double> times_;
+      protected List<double> spreadValues_;
+      protected Compounding compounding_;
+      protected Frequency frequency_;
+      protected DayCounter dc_;
+      protected Interpolator factory_;
+      protected Interpolation interpolator_;
 
       public override DayCounter dayCounter() { return originalCurve_.link.dayCounter(); }
       public override Calendar calendar() { return originalCurve_.link.calendar(); }
@@ -82,7 +82,7 @@ namespace QLNet
          return spreadedRate.equivalentRate(Compounding.Continuous, Frequency.NoFrequency, t).value();
       }
 
-      private double calcSpread(double t)
+      protected double calcSpread(double t)
       {
          if (t <= times_.First())
             return spreads_.First().link.value();
@@ -109,7 +109,7 @@ namespace QLNet
          }
       }
 
-      private void updateInterpolation()
+      protected void updateInterpolation()
       {
          for (int i = 0; i < dates_.Count; i++)
          {

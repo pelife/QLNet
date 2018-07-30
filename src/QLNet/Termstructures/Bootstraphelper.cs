@@ -80,13 +80,8 @@ namespace QLNet
                            to <b>this</b>, i.e., the term structure itself.
       */
       public virtual void setTermStructure(TS ts)
-      {
-<<<<<<< HEAD
+      {         
          if (ts == null) throw new ArgumentException("null term structure given");
-=======
-         if (ts == null)
-            throw new ArgumentException("null term structure given");
->>>>>>> 060801ae16d049dee4d44d70a1c35932ac18090c
          termStructure_ = ts;
       }
 
@@ -110,7 +105,6 @@ namespace QLNet
       public virtual Date latestRelevantDate()
       {
          if (latestRelevantDate_ == null)
-<<<<<<< HEAD
             return latestDate();
          return latestRelevantDate_;
       }
@@ -120,17 +114,6 @@ namespace QLNet
       {
          if (pillarDate_ == null)
             return latestDate();
-=======
-            return latestDate();
-         return latestRelevantDate_;
-      }
-
-      //! pillar date
-      public virtual Date pillarDate()
-      {
-         if (pillarDate_ == null)
-            return latestDate();
->>>>>>> 060801ae16d049dee4d44d70a1c35932ac18090c
          return pillarDate_;
       }
 
@@ -149,19 +132,8 @@ namespace QLNet
       private readonly WeakEventSource eventSource = new WeakEventSource();
       public event Callback notifyObserversEvent
       {
-<<<<<<< HEAD
          add { eventSource.Subscribe(value); }
          remove { eventSource.Unsubscribe(value); }
-=======
-         add
-         {
-            eventSource.Subscribe(value);
-         }
-         remove
-         {
-            eventSource.Unsubscribe(value);
-         }
->>>>>>> 060801ae16d049dee4d44d70a1c35932ac18090c
       }
 
       public void registerWith(Callback handler) { notifyObserversEvent += handler; }
@@ -178,7 +150,6 @@ namespace QLNet
    public class RateHelper : BootstrapHelper<YieldTermStructure>
    {
       public RateHelper() : base() { } // required for generics
-<<<<<<< HEAD
       public RateHelper(Handle<Quote> quote) : base(quote) { }
       public RateHelper(double quote) : base(quote) { }
    }
@@ -205,9 +176,4 @@ namespace QLNet
       virtual protected void initializeDates() { }
       
    };
-=======
-      public RateHelper(Handle<Quote> quote) : base(quote) {}
-      public RateHelper(double quote) : base(quote) {}
-   }
->>>>>>> 060801ae16d049dee4d44d70a1c35932ac18090c
 }
